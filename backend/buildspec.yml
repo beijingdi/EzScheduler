@@ -6,6 +6,8 @@ phases:
       - echo "Installing NPM dependencies..."
       - cd backend
       - npm install
+      - echo "Listing backend directory after npm install:"
+      - ls -l
   pre_build:
     commands:
       - echo "Pre-build phase..."
