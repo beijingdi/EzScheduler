@@ -20,11 +20,13 @@ phases:
     commands:
       - echo "Post-build phase..."
       - echo "Zipping the application..."
-      - zip -r ../backend.zip .
-      # Add any post-build commands here if necessary
+      - cd ..  # Navigate back to the root directory
+      - zip -r backend.zip backend/  # Zip the backend directory
+      - echo "Listing contents of the root directory:"
+      - ls -l  # List the contents to verify the zip file creation
 
 artifacts:
   files:
     - backend.zip
-  base-directory: 'backend' # This should be set to the directory containing your package.json and node_modules
+  base-directory: '.'  # Set to the root directory where backend.zip is located
   discard-paths: yes
