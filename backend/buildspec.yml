@@ -11,7 +11,7 @@ phases:
       - echo "Build started on $(date)"
       - echo "Copying files to the build directory"
       - mkdir -p build
-      - cp -R * build
+      - cp -R $(ls | grep -v 'build') build/
       - echo "Files copied to build directory:"
       - ls -l build
 
