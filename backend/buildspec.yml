@@ -6,17 +6,21 @@ phases:
       - echo "Installing NPM dependencies..."
       - cd backend
       - npm install
+  pre_build:
+    commands:
+      - echo "Pre-build phase..."
+      # Add any pre-build commands here if necessary
   build:
     commands:
       - echo "Build started on $(date)"
-      - echo "Copying files to the build directory"
-      - mkdir -p build
-      - cp -R $(ls | grep -v 'build') build/
-      - echo "Files copied to build directory:"
-      - ls -l build
+      - echo "No additional build commands required"
+  post_build:
+    commands:
+      - echo "Post-build phase..."
+      # Add any post-build commands here if necessary
 
 artifacts:
   files:
     - '**/*'
-  base-directory: 'backend/build'
+  base-directory: 'backend' # This should be set to the directory containing your package.json and node_modules
   discard-paths: yes
