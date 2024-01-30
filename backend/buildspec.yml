@@ -21,8 +21,6 @@ phases:
       - echo "Post-build phase..."
       - echo "Zipping the application..."
       - zip -r ../backend.zip .
-      - echo "Listing contents of the zip file:"
-      - unzip -l ../backend.zip
       # Add any post-build commands here if necessary
 
 artifacts:
