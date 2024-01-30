@@ -1,4 +1,3 @@
-version: 0.2
 
 phases:
   install:
@@ -15,9 +14,10 @@ phases:
   post_build:
     commands:
       - echo "Post-build phase..."
+      - cd ..  # Go back to the root directory
+      - zip -r backend.zip backend/  # Create backend.zip from the backend directory
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: 'backend'  # This should be set to the directory containing your package.json and node_modules
+    - backend.zip
   discard-paths: yes
