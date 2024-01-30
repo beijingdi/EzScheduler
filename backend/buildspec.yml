@@ -20,7 +20,6 @@ phases:
     commands:
       - echo "Post-build phase..."
       - echo "Zipping the application..."
-      - cd backend
       - zip -r ../backend.zip .
       - echo "Listing contents of the zip file:"
       - unzip -l ../backend.zip
