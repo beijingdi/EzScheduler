@@ -2,6 +2,8 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 18  # Specify the desired Node.js version (e.g., Node.js 14.x)
     commands:
       - echo "Installing NPM dependencies..."
       - cd backend
@@ -15,10 +17,8 @@ phases:
   post_build:
     commands:
       - echo "Post-build phase..."
-      - cd ..  # Go back to the root directory
-      - zip -r backend.zip backend/  # Create backend.zip from the backend directory
 
 artifacts:
   files:
-    - backend.zip
-  discard-paths: yes
+    - '**/*'
+  base-directory: 'backend'  # This should be set to the directory containing your package.json and node_modules
